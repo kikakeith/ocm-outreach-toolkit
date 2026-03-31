@@ -2113,6 +2113,21 @@ p {
     --navbar-height: 60px;
   }
 
+  /* Prevent any element from causing horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Tighten section h2 on mobile */
+  .section-header h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem) !important;
+  }
+
   /* ── Navbar ── */
   .nav-toggle {
     display: flex;
@@ -2165,6 +2180,13 @@ p {
     height: 70px !important;
   }
 
+  /* Prevent hero title from overflowing narrow screens */
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 8vw, 3rem) !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
   .hero-cta {
     flex-direction: column;
     align-items: center;
@@ -2172,7 +2194,7 @@ p {
 
   /* Tighten the first-of-type subtitle on mobile */
   .hero-content p:first-of-type {
-    font-size: 1rem;
+    font-size: 0.95rem;
     letter-spacing: 0.03em;
   }
 

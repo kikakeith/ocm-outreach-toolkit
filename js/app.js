@@ -370,10 +370,10 @@ function initScrollAnimations() {
         if (entry.isIntersecting) {
           // Stagger grid children
           const children = entry.target.querySelectorAll(
-            ".grid > *, .card-grid > *, .carousel-track > *"
+            ".grid > *, .card-grid > *, .carousel-track > *, .workshops-grid > *, .highlights-grid > *, .trading-cards-grid > *"
           );
           children.forEach((child, i) => {
-            child.style.transitionDelay = `${i * 0.1}s`;
+            child.style.transitionDelay = `${i * 0.08}s`;
           });
 
           entry.target.classList.add("visible");
@@ -381,7 +381,7 @@ function initScrollAnimations() {
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.05, rootMargin: "0px 0px -50px 0px" }
   );
 
   elements.forEach((el) => observer.observe(el));
