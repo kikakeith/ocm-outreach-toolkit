@@ -2110,11 +2110,26 @@ p {
 /* Mobile-only overrides (max-width) */
 @media (max-width: 767px) {
   :root {
-    --navbar-height: 64px;
+    --navbar-height: 60px;
   }
 
+  /* ── Navbar ── */
   .nav-toggle {
     display: flex;
+  }
+
+  /* Override the inline 84px logo — keep it tidy in the navbar */
+  .navbar-brand img {
+    height: 44px !important;
+  }
+
+  .navbar.scrolled .navbar-brand img {
+    height: 36px !important;
+  }
+
+  /* Hide the "OCM" text next to logo on tiny screens */
+  .navbar-brand span {
+    display: none;
   }
 
   .nav-links {
@@ -2140,8 +2155,14 @@ p {
     font-size: 1.2rem;
   }
 
+  /* ── Hero ── */
   .hero-content {
     padding: var(--space-lg);
+  }
+
+  /* Scale down the LA County seal on mobile */
+  .hero-content > img {
+    height: 70px !important;
   }
 
   .hero-cta {
@@ -2149,6 +2170,37 @@ p {
     align-items: center;
   }
 
+  /* Tighten the first-of-type subtitle on mobile */
+  .hero-content p:first-of-type {
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── Section header callout box ── */
+  .section-header p {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    margin: 0.75rem auto 0;
+    border-radius: 10px;
+  }
+
+  /* ── Campaign flipbook ── */
+  .flipbook-wrapper iframe {
+    height: 380px !important;
+  }
+
+  /* ── FREE ticker ── */
+  .free-ticker-track span {
+    font-size: 0.8rem;
+  }
+
+  /* ── FREE badge ── */
+  .free-badge {
+    font-size: 0.85rem;
+    padding: 0.35rem 1.1rem;
+  }
+
+  /* ── Pamphlet ── */
   .section-pamphlet .pamphlet-card {
     grid-template-columns: 1fr;
   }
@@ -2162,23 +2214,27 @@ p {
     padding: var(--space-lg);
   }
 
+  /* ── Video / operator cards ── */
   .highlights-grid,
   .section-highlights .grid {
     grid-template-columns: 1fr;
   }
 
+  /* ── Workshop fliers ── */
   .workshops-grid {
     grid-template-columns: 1fr;
   }
 
+  /* ── Trading cards ── */
   .trading-cards-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .trading-card {
-    height: 340px;
+    height: 280px;
   }
 
+  /* ── Footer ── */
   .footer-grid {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
@@ -2189,6 +2245,7 @@ p {
     text-align: center;
   }
 
+  /* ── Misc ── */
   .scroll-progress {
     display: none;
   }
@@ -2203,6 +2260,11 @@ p {
   .grid-4 {
     grid-template-columns: 1fr;
   }
+
+  /* Video overlay — taller on small screens */
+  #video-overlay > div {
+    width: 96vw !important;
+  }
 }
 
 /* Tablet only */
@@ -2215,8 +2277,24 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .trading-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .trading-card {
     height: 360px;
+  }
+
+  .highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .flipbook-wrapper iframe {
+    height: 500px !important;
+  }
+
+  .navbar-brand img {
+    height: 56px !important;
   }
 }
 
