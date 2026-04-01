@@ -786,16 +786,30 @@ function initLightbox() {
 function openVideoOverlay(url) {
   var overlay = document.getElementById("video-overlay");
   var iframe = document.getElementById("video-overlay-iframe");
+  var container = document.getElementById("video-overlay-container");
   if (!overlay || !iframe) return;
 
   // Convert any youtube.com/shorts/ID or youtu.be/ID to clean embed URL
   var embedUrl = url;
+  var isShort = false;
   var shortsMatch = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/);
   var youtubeMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]+)/);
   if (shortsMatch) {
+    isShort = true;
     embedUrl = "https://www.youtube.com/embed/" + shortsMatch[1] + "?autoplay=1&rel=0";
   } else if (youtubeMatch) {
     embedUrl = "https://www.youtube.com/embed/" + youtubeMatch[1] + "?autoplay=1&rel=0";
+  }
+
+  // Size container correctly: portrait for Shorts, landscape for regular videos
+  if (container) {
+    if (isShort) {
+      container.style.width = "min(92vw, 400px)";
+      container.style.aspectRatio = "9/16";
+    } else {
+      container.style.width = "min(92vw, 900px)";
+      container.style.aspectRatio = "16/9";
+    }
   }
 
   iframe.src = embedUrl;
