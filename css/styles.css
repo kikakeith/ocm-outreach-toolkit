@@ -688,6 +688,96 @@ p {
    9. COMMERCIAL VIDEO SECTION
    -------------------------------------------------------------------------- */
 
+/* Commercial Intro — cinematic autoplay band */
+.section-commercial-intro {
+  background: #000;
+  padding: var(--space-3xl) 0 var(--space-2xl);
+  text-align: center;
+}
+
+.commercial-intro-logo {
+  margin: 0 auto var(--space-xl);
+}
+
+.commercial-intro-logo img {
+  height: 120px;
+  width: auto;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.5));
+}
+
+.commercial-intro-video {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+}
+
+.commercial-intro-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  /* prevent click-through to YouTube */
+  pointer-events: none;
+}
+
+.commercial-intro-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: var(--space-xl);
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.commercial-intro-sound-btn {
+  pointer-events: all;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  padding: 0.65rem 1.6rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.commercial-intro-sound-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.7);
+  transform: scale(1.04);
+}
+
+@media (max-width: 767px) {
+  .commercial-intro-logo img {
+    height: 80px;
+  }
+
+  .commercial-intro-video {
+    border-radius: 0;
+    max-width: 100%;
+  }
+
+  .commercial-intro-sound-btn {
+    font-size: 0.85rem;
+    padding: 0.55rem 1.2rem;
+  }
+}
+
 /* Campaign Overview — focal section */
 .section-campaign {
   background: linear-gradient(135deg, #0654A7 0%, #259EAE 60%, #71C220 100%);
